@@ -75,9 +75,16 @@
             </form>
 
             <p class="mt-10 text-center text-sm text-gray-500">
-                ¿Ha olvidado su contraseña?
-                <a href="#" class="font-semibold leading-6 text-red-600 hover:text-red-500">Recupérala aquí</a>
+                ¿Aún no tiene cuenta?
+                <a href="{{route('register')}}" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-400">Registrese aquí</a>
             </p>
+
+            <p class="mt-4 text-center text-sm text-gray-500">
+                ¿Ha olvidado su contraseña?
+                <a href="#" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-400">Recupérala aquí</a>
+            </p>
+
+
         </div>
     </div>
 </div>
