@@ -12,6 +12,12 @@ Route::get('/', function () {
 });
 
 Route::get('/home', [HomeController::class, 'index']);
+Route::get('/aboutus', [HomeController::class, 'aboutUsIndex'])->name('aboutus');
+Route::get('/howitworks', [HomeController::class, 'howItWorksIndex'])->name('howitworks');
+Route::get('/whysavemyprogress', [HomeController::class, 'whySaveProgresIndex'])->name('whysavemyprogress');
+
+
+
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'store'])->name('login.store');
 Route::get('/register', [RegisterController::class, 'index'])->name('register');

@@ -32,10 +32,10 @@
         </div>
         <div class="hidden lg:flex lg:gap-x-12">
             <a href="{{url('/')}}" class="text-sm font-semibold leading-6 text-gray-900">Inicio</a>
-            <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Acerca de</a>
-            <a href="#" class="text-sm font-semibold leading-6 text-gray-900">¿Por qué debo guardar mi
+            <a href="{{route('aboutus')}}" class="text-sm font-semibold leading-6 text-gray-900">Acerca de</a>
+            <a href="{{route('whysavemyprogress')}}" class="text-sm font-semibold leading-6 text-gray-900">¿Por qué debo guardar mi
                 progreso?</a>
-            <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Cómo funciona</a>
+            <a href="{{route('howitworks')}}" class="text-sm font-semibold leading-6 text-gray-900">Cómo funciona</a>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
             @guest
