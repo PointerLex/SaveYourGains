@@ -24,6 +24,11 @@ Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 
 Route::get('/dashboard', [ClientController::class, 'index'])->name('clientDashboard');
+Route::get('/achievement', [ClientController::class, 'achievementIndex'])->name('achievement');
+Route::get('/customRoutine', [ClientController::class, 'customizeRoutineIndex'])->name('customizeRoutine');
+Route::get('/leaderboard', [ClientController::class, 'leaderboardIndex'])->name('leaderboard');
+
+
 Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 
