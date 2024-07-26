@@ -10,4 +10,24 @@ class ClientController extends Controller
     {
         return view('client.clientDashboard');
     }
+
+    public function achievementIndex()
+    {
+        return view('client.achievement');
+    }
+
+    public function leaderboardIndex()
+    {
+        return view('client.leaderboard');
+    }
+
+
+    public function customizeRoutineIndex()
+    {
+        return view('client.customizeRoutine');
+    }
+
+
+
+
 }
