@@ -9,6 +9,14 @@ class Progress extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'date_routine_done',
+        'best_exercise',
+        'max_weight',
+        'routine_id',
+        'user_id'
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);

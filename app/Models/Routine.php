@@ -9,6 +9,11 @@ class Routine extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'description'
+    ];
+
     public function progresses()
     {
         return $this->hasMany(Progress::class);

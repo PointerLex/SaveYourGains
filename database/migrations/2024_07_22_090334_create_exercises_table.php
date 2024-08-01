@@ -15,13 +15,15 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('description')->nullable();
-            $table->string('sets')->nullable();
+            $table->integer('set_amount')->nullable();
+            $table->integer('rep_amount')->nullable();
             $table->integer('weight')->nullable();
-            $table->string('reps')->nullable();
-            $table->string('rest')->nullable();
+            $table->integer('rest')->nullable();
             $table->string('mode')->nullable();
-            $table->foreignId('routine_id')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('routine_id');
             $table->timestamps();
+
+            $table->foreign('routine_id')->references('id')->on('routines')->onDelete('cascade');
         });
     }
 

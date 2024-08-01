@@ -52,9 +52,9 @@ class User extends Authenticatable
         return $this->hasMany(Progress::class);
     }
 
-    public function roles()
+    public function role()
     {
-        return $this->hasMany(Role::class);
+        return $this->hasOne(Role::class);
     }
 
     public function achievements()
