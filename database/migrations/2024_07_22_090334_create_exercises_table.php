@@ -16,8 +16,6 @@ return new class extends Migration
             $table->string('name');
             $table->string('description')->nullable();
             $table->integer('set_amount')->nullable();
-            $table->integer('rep_amount')->nullable();
-            $table->integer('weight')->nullable();
             $table->integer('rest')->nullable();
             $table->string('mode')->nullable();
             $table->unsignedBigInteger('routine_id');

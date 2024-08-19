@@ -15,7 +15,7 @@ Route::get('/', function () {
 Route::get('/home', [HomeController::class, 'index']);
 Route::get('/aboutus', [HomeController::class, 'aboutUsIndex'])->name('aboutus');
 Route::get('/howitworks', [HomeController::class, 'howItWorksIndex'])->name('howitworks');
-Route::get('/whysavemyprogress', [HomeController::class, 'whySaveProgressIndex'])->name('whysavemyprogress');
+Route::get('/whysavemyprogress', [HomeController::class, 'whySaveProgresIndex'])->name('whysavemyprogress');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'store'])->name('login.store');
@@ -25,8 +25,9 @@ Route::post('/register', [RegisterController::class, 'store'])->name('register.s
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [ClientController::class, 'index'])->name('clientDashboard');
     Route::get('/achievement', [ClientController::class, 'achievementIndex'])->name('achievement');
-    Route::get('/customRoutine', [ClientController::class, 'customizeRoutineIndex'])->name('customizeRoutine');
+    Route::get('/customize-routine', [ClientController::class, 'customizeRoutineIndex'])->name('customize-routine');
     Route::get('/leaderboard', [ClientController::class, 'leaderboardIndex'])->name('leaderboard');
+    Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 
     Route::get('/routines/create', [RoutineController::class, 'create'])->name('routines.create');
     Route::post('/routines', [RoutineController::class, 'store'])->name('routines.store');
@@ -35,4 +36,3 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/routines/{routine}', [RoutineController::class, 'destroy'])->name('routines.destroy');
 });
 
-Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');

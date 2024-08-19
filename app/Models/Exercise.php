@@ -13,14 +13,18 @@ class Exercise extends Model
         'name',
         'description',
         'set_amount',
-        'rep_amount',
-        'weight',
         'mode',
-        'routine_id'
+        'routine_id',
+        'rest',  // Agregar este campo para permitir la asignación masiva
     ];
 
     public function routine()
     {
         return $this->belongsTo(Routine::class);
+    }
+
+    public function sets()
+    {
+        return $this->hasMany(Set::class);
     }
 }

@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
@@ -66,7 +68,7 @@
                             de posiciones</a>
                     </li>
                     <li>
-                        <a href="{{route('customizeRoutine')}}"
+                        <a href="{{route('customize-routine')}}"
                             class="block py-2 px-3 text-gray-300 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-yellow-500 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Personalizar
                             rutina</a>
                     </li>
@@ -79,4 +81,5 @@
     </main>
 
 </body>
+    @yield('alert')
 </html>

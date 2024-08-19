@@ -3,89 +3,104 @@
 @section('title', 'Save your gains | Iniciar sesión')
 
 @section('content')
-<style>
-    .background-image {
-        background-image: url('/images/loginImange.jpeg');
-        background-size: cover;
-        background-position: center;
-    }
-</style>
 
-<div class="h-full flex">
-    <div class="background-image w-1/2 h-screen hidden md:block">
-        <!-- Imagen de fondo a la izquierda -->
-    </div>
-
-    <div class="flex w-full md:w-1/2 min-h-full flex-col justify-center px-6 py-20 lg:px-8">
-        <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-            <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">INICIAR SESIÓN</h2>
+    <div class="min-h-screen bg-black flex flex-col justify-center"
+        style="background-image: url('{{ asset('images/home-bg.png') }}'); background-size: cover; background-position: center;">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <!-- background effect -->
         </div>
 
-        <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <form class="space-y-6" action="{{ route('login.store') }}" method="POST" novalidate>
-                @csrf
-                <div>
-                    <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Correo electrónico</label>
-                    <div class="mt-2 relative">
-                        <input id="email" name="email" type="email" autocomplete="email"
-                            placeholder="usuario@ejemplo.cl" required
-                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:px-1 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 pl-10">
-                        @error('email')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                        @enderror
-                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4 7.00005L10.2 11.65C11.2667 12.45 12.7333 12.45 13.8 11.65L20 7" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                <rect x="3" y="5" width="18" height="14" rx="2" stroke="#000000" stroke-width="2" stroke-linecap="round"></rect>
-                            </svg>
+        <h1 class="text-4xl font-semibold text-center mt-12 relative text-white ">Iniciar sesión</h1>
+        <p class="text-center text-base font-thin text-gray-300  mt-2 z-10">¡Inicia sesión para poder guardar tus datos y tu progreso!</p>
+
+        <div class="flex w-full  min-h-full flex-col justify-center px-6 py-12 lg:px-8 z-10">
+
+            <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+                <form class="space-y-6" action="{{ route('login.store') }}" method="POST" novalidate>
+                    @csrf
+                    <div>
+                        <label for="email" class="block text-sm font-semibold leading-6 text-white">Correo
+                            electrónico</label>
+                        <div class="mt-2 relative">
+                            <input id="email" name="email" type="email" autocomplete="email"
+                                placeholder="usuario@ejemplo.cl" required
+                                class="block w-full rounded-md border-0 bg-transparent py-1.5 text-slate-50 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:px-1 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 pl-10">
+                            @error('email')
+                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4 7.00005L10.2 11.65C11.2667 12.45 12.7333 12.45 13.8 11.65L20 7"
+                                        stroke="#ffff" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                    <rect x="3" y="5" width="18" height="14" rx="2" stroke="#ffff"
+                                        stroke-width="2" stroke-linecap="round"></rect>
+                                </svg>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div>
-                    <div class="flex items-center justify-between">
-                        <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Contraseña</label>
-                    </div>
-                    <div class="mt-2 relative">
-                        <input id="password" name="password" type="password" autocomplete="current-password"
-                            placeholder="********" required
-                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 pl-10">
-                        @error('password')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                        @enderror
-                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                            <svg class="w-5 h-5" viewBox="-4.8 -4.8 57.60 57.60" xmlns="http://www.w3.org/2000/svg" fill="#000000" stroke="#000000" stroke-width="1.8240000000000003">
-                                <path d="M24,25.28a3.26,3.26,0,0,0-1.64,6.07V36h3.32V31.35a3.28,3.28,0,0,0,1.61-2.8v0A3.27,3.27,0,0,0,24,25.28Z"></path>
-                                <rect x="7.38" y="17.77" width="33.23" height="25.73" rx="4.32"></rect>
-                                <path d="M13.35,17.77V15.16a10.66,10.66,0,0,1,21.32,0v2.61"></path>
+                    <div>
+                        <div class="flex items-center justify-between">
+                            <label for="password"
+                                class="block text-sm font-semibold leading-6 text-white">Contraseña</label>
+                        </div>
+                        <div class="mt-2 relative">
+                            <input id="password" name="password" type="password" autocomplete="current-password"
+                                placeholder="********" required
+                                class="block w-full rounded-md border-0 py-1.5 bg-transparent text-slate-50 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 pl-10">
+                            @error('password')
+                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                <svg class="w-4 h-4" fill="#ffff" viewBox="0 0 35 35" data-name="Layer 2"
+                                id="a6b678a2-3714-46f6-ad50-598977cf64a4" xmlns="http://www.w3.org/2000/svg">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path
+                                        d="M27.137,34.75H7.862a4.8,4.8,0,0,1-4.79-4.791V15.614a4.8,4.8,0,0,1,4.79-4.791H27.137a4.8,4.8,0,0,1,4.791,4.791V29.959A4.8,4.8,0,0,1,27.137,34.75ZM7.862,13.323a2.292,2.292,0,0,0-2.29,2.291V29.959a2.292,2.292,0,0,0,2.29,2.291H27.137a2.293,2.293,0,0,0,2.291-2.291V15.614a2.293,2.293,0,0,0-2.291-2.291Z">
+                                    </path>
+                                    <path
+                                        d="M25.537,13.323a1.25,1.25,0,0,1-1.25-1.25V8.608a5.409,5.409,0,0,0-1.935-4.082A7.253,7.253,0,0,0,17.5,2.75c-3.744,0-6.79,2.628-6.79,5.858v3.465a1.25,1.25,0,0,1-2.5,0V8.608C8.207,4,12.375.25,17.5.25a9.748,9.748,0,0,1,6.511,2.4,7.869,7.869,0,0,1,2.779,5.955v3.465A1.25,1.25,0,0,1,25.537,13.323Z">
+                                    </path>
+                                    <path
+                                        d="M17.5,25.779a1.25,1.25,0,0,1-1.25-1.25V21.2a1.25,1.25,0,0,1,2.5,0v3.334A1.25,1.25,0,0,1,17.5,25.779Z">
+                                    </path>
+                                </g>
                             </svg>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div>
-                    <button type="submit"
-                        class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Entrar</button>
-                </div>
-                @if (@session('message'))
-                    <div class="text-red-500 text-center">
-                        <p>{{ session('message') }}</p>
+                    <div>
+                        <button type="submit"
+                            class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Entrar</button>
                     </div>
-                @endif
-            </form>
+                    @if (@session('message'))
+                        <div class="text-red-500 text-center">
+                            <p>{{ session('message') }}</p>
+                        </div>
+                    @endif
+                </form>
 
-            <p class="mt-10 text-center text-sm text-gray-500">
-                ¿Aún no tiene cuenta?
-                <a href="{{route('register')}}" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-400">Registrese aquí</a>
-            </p>
+                <p class="mt-10 text-center font-semibold text-sm text-gray-300">
+                    ¿Aún no tiene cuenta?
+                    <a href="{{ route('register') }}"
+                        class="font-bold leading-6 text-indigo-600 hover:text-indigo-400">Registrese aquí</a>
+                </p>
 
-            <p class="mt-4 text-center text-sm text-gray-500">
-                ¿Ha olvidado su contraseña?
-                <a href="#" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-400">Recupérala aquí</a>
-            </p>
+                <p class="mt-4 text-center font-semibold text-sm text-gray-300">
+                    ¿Ha olvidado su contraseña?
+                    <a href="#" class="font-bold leading-6 text-indigo-600 hover:text-indigo-400">Recupérala
+                        aquí</a>
+                </p>
 
 
+            </div>
         </div>
+
     </div>
-</div>
+
 @endsection
