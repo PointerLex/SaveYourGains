@@ -11,7 +11,8 @@ class Routine extends Model
 
     protected $fillable = [
         'name',
-        'description'
+        'description',
+        'user_id',
     ];
 
     public function progresses()
@@ -22,5 +23,10 @@ class Routine extends Model
     public function exercises()
     {
         return $this->hasMany(Exercise::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

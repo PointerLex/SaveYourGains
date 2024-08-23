@@ -29,8 +29,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/leaderboard', [ClientController::class, 'leaderboardIndex'])->name('leaderboard');
     Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 
+    Route::get('/routines', [RoutineController::class, 'index'])->name('routines.index');
     Route::get('/routines/create', [RoutineController::class, 'create'])->name('routines.create');
     Route::post('/routines', [RoutineController::class, 'store'])->name('routines.store');
+    Route::get('/routines/list',[RoutineController::class, 'list'])->name('routines.list');
     Route::get('/routines/{routine}/edit', [RoutineController::class, 'edit'])->name('routines.edit');
     Route::put('/routines/{routine}', [RoutineController::class, 'update'])->name('routines.update');
     Route::delete('/routines/{routine}', [RoutineController::class, 'destroy'])->name('routines.destroy');
