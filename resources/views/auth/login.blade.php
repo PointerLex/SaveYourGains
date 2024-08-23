@@ -44,7 +44,8 @@
                     <div>
                         <div class="flex items-center justify-between">
                             <label for="password"
-                                class="block text-sm font-semibold leading-6 text-white">Contraseña</label>
+                                class="block text-sm font-semibold leading-6 text-white">Contraseña
+                            </label>
                         </div>
                         <div class="mt-2 relative">
                             <input id="password" name="password" type="password" autocomplete="current-password"
