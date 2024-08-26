@@ -7,6 +7,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RoutineController;
+use App\Http\Controllers\ProgressController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -24,6 +25,10 @@ Route::post('/register', [RegisterController::class, 'store'])->name('register.s
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [ClientController::class, 'index'])->name('clientDashboard');
+    Route::get('/progress/', [ProgressController::class, 'index'])->name('progress.index');
+    Route::get('/progress/{day}', [ProgressController::class, 'show'])->name('progress.show');
+    Route::put('/progress/{progress}', [ProgressController::class, 'update'])->name('progress.update');
+
     Route::get('/achievement', [ClientController::class, 'achievementIndex'])->name('achievement');
     Route::get('/customize-routine', [ClientController::class, 'customizeRoutineIndex'])->name('customize-routine');
     Route::get('/leaderboard', [ClientController::class, 'leaderboardIndex'])->name('leaderboard');

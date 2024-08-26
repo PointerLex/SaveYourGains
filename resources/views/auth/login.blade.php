@@ -11,7 +11,8 @@
         </div>
 
         <h1 class="text-4xl font-semibold text-center mt-12 relative text-white ">Iniciar sesión</h1>
-        <p class="text-center text-base font-thin text-gray-300  mt-2 z-10">¡Inicia sesión para poder guardar tus datos y tu progreso!</p>
+        <p class="text-center text-base font-thin text-gray-300  mt-2 z-10">¡Inicia sesión para poder guardar tus datos y tu
+            progreso!</p>
 
         <div class="flex w-full  min-h-full flex-col justify-center px-6 py-12 lg:px-8 z-10">
 
@@ -22,40 +23,41 @@
                         <label for="email" class="block text-sm font-semibold leading-6 text-white">Correo
                             electrónico</label>
                         <div class="mt-2 relative">
+                            <svg class="w-5 h-5 relative top-7 left-3" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 7.00005L10.2 11.65C11.2667 12.45 12.7333 12.45 13.8 11.65L20 7" stroke="#ffff"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                </path>
+                                <rect x="3" y="5" width="18" height="14" rx="2" stroke="#ffff"
+                                    stroke-width="2" stroke-linecap="round"></rect>
+                            </svg>
+
                             <input id="email" name="email" type="email" autocomplete="email"
                                 placeholder="usuario@ejemplo.cl" required
                                 class="block w-full rounded-md border-0 bg-transparent py-1.5 text-slate-50 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:px-1 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 pl-10">
                             @error('email')
-                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                                <div class="flex items-center p-3 mb-4 mt-4 text-sm text-red-800 rounded-lg bg-gray-800 dark:bg-gray-800 dark:text-red-400"
+                                    role="alert">
+                                    <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                                    </svg>
+                                    <div>
+                                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                                    </div>
+                                </div>
                             @enderror
-                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M4 7.00005L10.2 11.65C11.2667 12.45 12.7333 12.45 13.8 11.65L20 7"
-                                        stroke="#ffff" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round"></path>
-                                    <rect x="3" y="5" width="18" height="14" rx="2" stroke="#ffff"
-                                        stroke-width="2" stroke-linecap="round"></rect>
-                                </svg>
-                            </div>
                         </div>
                     </div>
 
                     <div>
                         <div class="flex items-center justify-between">
-                            <label for="password"
-                                class="block text-sm font-semibold leading-6 text-white">Contraseña
+                            <label for="password" class="block text-sm font-semibold leading-6 text-white">Contraseña
                             </label>
                         </div>
                         <div class="mt-2 relative">
-                            <input id="password" name="password" type="password" autocomplete="current-password"
-                                placeholder="********" required
-                                class="block w-full rounded-md border-0 py-1.5 bg-transparent text-slate-50 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 pl-10">
-                            @error('password')
-                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                            @enderror
-                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                <svg class="w-4 h-4" fill="#ffff" viewBox="0 0 35 35" data-name="Layer 2"
+                            <svg class="w-4 h-4 relative top-6 left-3" fill="#ffff" viewBox="0 0 35 35" data-name="Layer 2"
                                 id="a6b678a2-3714-46f6-ad50-598977cf64a4" xmlns="http://www.w3.org/2000/svg">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -71,17 +73,44 @@
                                     </path>
                                 </g>
                             </svg>
-                            </div>
+                            <input id="password" name="password" type="password" autocomplete="current-password"
+                                placeholder="********" required
+                                class="block w-full rounded-md border-0 py-1.5 bg-transparent text-slate-50 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 pl-10">
+                            @error('password')
+                                <div class="flex items-center p-3 mb-4 mt-4 text-sm text-red-800 rounded-lg bg-gray-800 dark:bg-gray-800 dark:text-red-400"
+                                    role="alert">
+                                    <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                                    </svg>
+                                    <div>
+                                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+
+                                    </div>
+                                </div>
+                            @enderror
                         </div>
                     </div>
 
                     <div>
                         <button type="submit"
-                            class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Entrar</button>
+                            class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500
+                            focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        >Entrar
+                        </button>
                     </div>
                     @if (@session('message'))
-                        <div class="text-red-500 text-center">
-                            <p>{{ session('message') }}</p>
+                        <div class="flex items-center p-3 mb-4 mt-4 text-sm text-red-800 rounded-lg bg-gray-800 dark:bg-gray-800 dark:text-red-400"
+                            role="alert">
+                            <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                            </svg>
+                            <div>
+                                <p class="text-red-500 text-sm mt-1">{{ session('message') }}</p>
+                            </div>
                         </div>
                     @endif
                 </form>

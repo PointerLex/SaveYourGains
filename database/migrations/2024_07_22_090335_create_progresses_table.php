@@ -13,15 +13,12 @@ return new class extends Migration
     {
         Schema::create('progresses', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('date_routine_done');
-            $table->string('best_exercise');
-            $table->integer('max_weight');
-            $table->unsignedBigInteger('routine_id');
-            $table->unsignedBigInteger('user_id');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('routine_id')->constrained()->onDelete('cascade');
+            $table->date('day');
+            $table->time('time');
+            $table->text('notes')->nullable();
             $table->timestamps();
-
-            $table->foreign('routine_id')->references('id')->on('routines')->onDelete('cascade');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sessions');
+        Schema::dropIfExists('progresses');
     }
 };
