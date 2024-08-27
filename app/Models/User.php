@@ -67,4 +67,8 @@ class User extends Authenticatable
         return $this->hasOne(Leaderboard::class);
     }
 
+    public function routines()
+    {
+        return $this->hasMany(Routine::class);
+    }
 }

@@ -25,7 +25,9 @@ Route::post('/register', [RegisterController::class, 'store'])->name('register.s
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [ClientController::class, 'index'])->name('clientDashboard');
-    Route::get('/progress/', [ProgressController::class, 'index'])->name('progress.index');
+    Route::get('/progress', [ProgressController::class, 'index'])->name('progress.index');
+    Route::post('/progress/store', [ProgressController::class, 'store'])->name('progress.store');
+
     Route::get('/progress/{day}', [ProgressController::class, 'show'])->name('progress.show');
     Route::put('/progress/{progress}', [ProgressController::class, 'update'])->name('progress.update');
 
