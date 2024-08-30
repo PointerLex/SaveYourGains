@@ -7,6 +7,7 @@ use App\Models\Routine;
 use App\Models\Exercise;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class RoutineController extends Controller
 {
@@ -27,13 +28,18 @@ class RoutineController extends Controller
             'rest.*' => 'required|string|max:255',
             'reps.*.*' => 'nullable|integer|min:0',
             'weight.*.*' => 'nullable|integer|min:0',
+            'routine_image' => 'required|image|mimes:jpg,jpeg,png|max:2048', // Validación de la imagen
         ]);
 
         DB::transaction(function () use ($request) {
+            // Subir la imagen a Cloudinary
+            $uploadedFileUrl = Cloudinary::upload($request->file('routine_image')->getRealPath())->getSecurePath();
+
             $routine = Routine::create([
                 'name' => $request->input('routine_name'),
                 'description' => $request->input('description', null),
                 'user_id' => Auth::id(),
+                'image_url' => $uploadedFileUrl, // Guardar la URL de la imagen en la base de datos
             ]);
 
             foreach ($request->exercise_name as $index => $name) {
@@ -56,7 +62,7 @@ class RoutineController extends Controller
             }
         });
 
-        return redirect()->route('routines.create')->with('success', 'Routine created successfully.');
+        return redirect()->route('routines.create')->with('success', 'Rutina creada exitosamente.');
     }
 
     // Muestra la vista para listar y editar las rutinas del usuario
@@ -71,7 +77,6 @@ class RoutineController extends Controller
         return view('client.routine.edit', compact('routines'));
     }
 
-
     // Función para listar las rutinas
     public function list()
     {
@@ -80,19 +85,15 @@ class RoutineController extends Controller
         return view('client.routine.list', compact('routines'));
     }
 
-
     // Muestra la vista para editar una rutina existente
     public function edit(Routine $routine)
     {
-
         if ($routine->user_id != Auth::id()) {
             return redirect()->route('routines.index')->with('error', 'No tienes permiso para editar esta rutina.');
         }
 
         return view('client.routine.edit', compact('routine'));
     }
-
-
 
     public function update(Request $request, Routine $routine)
     {
@@ -104,10 +105,16 @@ class RoutineController extends Controller
             'rest.*' => 'required|string|max:255',
             'reps.*.*' => 'nullable|integer|min:0',
             'weight.*.*' => 'nullable|integer|min:0',
+            'routine_image' => 'image|mimes:jpg,jpeg,png|max:2048', // Validación opcional de la imagen
         ]);
 
         DB::transaction(function () use ($request, $routine) {
-            // Actualizar la rutina
+            if ($request->hasFile('routine_image')) {
+                // Subir la nueva imagen a Cloudinary y obtener la URL
+                $uploadedFileUrl = Cloudinary::upload($request->file('routine_image')->getRealPath())->getSecurePath();
+                $routine->update(['image_url' => $uploadedFileUrl]);
+            }
+
             $routine->update([
                 'name' => $request->input('routine_name'),
                 'description' => $request->input('description', null),
@@ -126,7 +133,6 @@ class RoutineController extends Controller
                     'routine_id' => $routine->id,
                 ]);
 
-                // Guardar sets para cada ejercicio si existen
                 if (isset($request->reps[$index])) {
                     foreach ($request->reps[$index] as $seriesIndex => $reps) {
                         $exercise->sets()->create([
@@ -138,9 +144,8 @@ class RoutineController extends Controller
             }
         });
 
-        return redirect()->route('routines.index')->with('success', 'Routine updated successfully.');
+        return redirect()->route('routines.index')->with('success', 'Rutina actualizada exitosamente.');
     }
-
 
     // Elimina una rutina existente
     public function destroy(Routine $routine)
@@ -151,6 +156,6 @@ class RoutineController extends Controller
 
         $routine->delete();
 
-        return redirect()->route('routines.index')->with('success', 'Routine deleted successfully.');
+        return redirect()->route('routines.index')->with('success', 'Rutina eliminada exitosamente.');
     }
 }

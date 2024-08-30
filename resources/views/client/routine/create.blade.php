@@ -8,8 +8,10 @@
         <p class="text-gray-600 mb-10">Para poder crear tu rutina debes llenar los campos. Si tienes dudas no dudes en
             consultar la información.</p>
 
-        <form id="routine-form" method="POST" action="{{ route('routines.store') }}">
+        <!-- Actualiza el formulario para manejar archivos -->
+        <form id="routine-form" method="POST" action="{{ route('routines.store') }}" enctype="multipart/form-data">
             @csrf
+
             <!-- Nombre de la rutina -->
             <div class="relative z-0 w-full mb-6 group">
                 <input type="text" name="routine_name" id="routine_name"
@@ -17,6 +19,15 @@
                     placeholder=" " oninput="checkRoutineName()" />
                 <label for="routine_name"
                     class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-yellow-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nombre
+                    de la rutina</label>
+            </div>
+
+            <!-- Imagen de la rutina -->
+            <div class="relative z-0 w-full mb-6 group">
+                <input type="file" name="routine_image" id="routine_image"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-yellow-500 peer" />
+                <label for="routine_image"
+                    class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-yellow-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Imagen
                     de la rutina</label>
             </div>
 
@@ -33,6 +44,7 @@
                     onclick="submitForm()">Guardar rutina</button>
             </div>
         </form>
+
         @if (session('success'))
             <script>
                 Swal.fire({

@@ -8,6 +8,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RoutineController;
 use App\Http\Controllers\ProgressController;
+use App\Http\Controllers\ProfileController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -27,6 +28,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [ClientController::class, 'index'])->name('clientDashboard');
     Route::get('/progress', [ProgressController::class, 'index'])->name('progress.index');
     Route::post('/progress/store', [ProgressController::class, 'store'])->name('progress.store');
+
+    Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+Route::post('/profile/update-picture', [ProfileController::class, 'updateProfilePicture'])->name('profile.updatePicture');
+
 
     Route::get('/progress/{day}', [ProgressController::class, 'show'])->name('progress.show');
     Route::put('/progress/{progress}', [ProgressController::class, 'update'])->name('progress.update');
