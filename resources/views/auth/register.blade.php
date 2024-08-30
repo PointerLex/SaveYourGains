@@ -19,7 +19,7 @@
             <div class="relative">
                 <div class="flex items-center">
                     <div class="absolute inset-y-0 left-0 flex items-center pl-3.5">
-                        <svg class = "w-4 h-4" fill="#000000" viewBox="0 0 32 32" version="1.1"
+                        <svg class = "w-4 h-4" fill="#ffff" viewBox="0 0 32 32" version="1.1"
                             xmlns="http://www.w3.org/2000/svg">
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -34,7 +34,7 @@
                 </div>
 
                 <input type="text" id="name" name="name" required
-                    class="bg-gray-50  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-3.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    class="block w-full rounded-md border-0 bg-transparent py-2 text-slate-50 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:px-1 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 pl-10"
                     placeholder="Ingrese su nombre aquí">
                 @error('name')
                     <div class="flex items-center p-2 mb-1 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 mt-2"
@@ -44,7 +44,6 @@
                             <path
                                 d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
                         </svg>
-                        <span class="sr-only">Info</span>
                         <div>
                             <span class="font-medium">{{ $message }}</span>
                         </div>
@@ -60,7 +59,6 @@
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                         <g id="SVGRepo_iconCarrier">
-                            <title>user</title>
                             <path
                                 d="M4 28q0 0.832 0.576 1.44t1.44 0.576h20q0.8 0 1.408-0.576t0.576-1.44q0-1.44-0.672-2.912t-1.76-2.624-2.496-2.144-2.88-1.504q1.76-1.088 2.784-2.912t1.024-3.904v-1.984q0-3.328-2.336-5.664t-5.664-2.336-5.664 2.336-2.336 5.664v1.984q0 2.112 1.024 3.904t2.784 2.912q-1.504 0.544-2.88 1.504t-2.496 2.144-1.76 2.624-0.672 2.912z">
                             </path>
@@ -68,8 +66,8 @@
                     </svg>
                 </div>
                 <input type="text" id="surname" name="surname" required
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Ingrese su apellido aquí">
+                    class="block w-full rounded-md border-0 bg-transparent py-2 px-12 text-slate-50 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:px-1 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 pl-10"
+                    placeholder="Ingrese su apellido">
                 @error('surname')
                     <div class="flex items-center p-2 mb-1 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 mt-2"
                         role="alert">
@@ -78,7 +76,6 @@
                             <path
                                 d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
                         </svg>
-                        <span class="sr-only">Info</span>
                         <div>
                             <span class="font-medium">{{ $message }}</span>
                         </div>
@@ -99,13 +96,13 @@
                         <g id="SVGRepo_iconCarrier">
                             <path
                                 d="M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12ZM16 12V13.5C16 14.8807 17.1193 16 18.5 16V16C19.8807 16 21 14.8807 21 13.5V12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21H16"
-                                stroke="#000000" stroke-width="1.8240000000000003" stroke-linecap="round"
+                                stroke="#ffff" stroke-width="1.8240000000000003" stroke-linecap="round"
                                 stroke-linejoin="round"></path>
                         </g>
                     </svg>
                 </div>
                 <input type="text" id="email" name="email" required
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    class="block w-full rounded-md border-0 bg-transparent py-2 text-slate-50 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:px-1 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 pl-10"
                     placeholder="Ingrese su correo electrónico aquí">
                 @error('email')
                     <div class="flex items-center p-2 mb-1 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 mt-2"
@@ -115,7 +112,6 @@
                             <path
                                 d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
                         </svg>
-                        <span class="sr-only">Info</span>
                         <div>
                             <span class="font-medium">{{ $message }}</span>
                         </div>
@@ -127,7 +123,7 @@
                 class="block mb-2 text-sm font-semibold text-white dark:text-white mt-4">Teléfono</label>
             <div class="relative">
                 <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-                    <svg class = "w-4 h-4"fill="#000000" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                    <svg class = "w-4 h-4"fill="#ffff" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                         <g id="SVGRepo_iconCarrier">
@@ -138,7 +134,7 @@
                     </svg>
                 </div>
                 <input type="text" id="phone" name="phone" required
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    class="block w-full rounded-md border-0 bg-transparent py-1.5 text-slate-50 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:px-1 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 pl-10"
                     placeholder="Ingrese su teléfono aquí">
                 @error('phone')
                     <div class="flex items-center p-2 mb-1 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 mt-2"
@@ -148,7 +144,7 @@
                             <path
                                 d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
                         </svg>
-                        <span class="sr-only">Info</span>
+
                         <div>
                             <span class="font-medium">{{ $message }}</span>
                         </div>
@@ -160,7 +156,7 @@
                 class="block mb-2 text-sm font-semibold text-white dark:text-white mt-4">Contraseña</label>
             <div class="relative">
                 <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-                    <svg class="w-4 h-4" fill="#000000" viewBox="0 0 35 35" data-name="Layer 2"
+                    <svg class="w-4 h-4" fill="#ffff" viewBox="0 0 35 35" data-name="Layer 2"
                         id="a6b678a2-3714-46f6-ad50-598977cf64a4" xmlns="http://www.w3.org/2000/svg">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -178,7 +174,7 @@
                     </svg>
                 </div>
                 <input type="password" id="password" name="password"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    class="block w-full rounded-md border-0 bg-transparent py-1.5 text-slate-50 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:px-1 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 pl-10"
                     placeholder="*************">
                 @error('password')
                     <div class="flex items-center p-2 mb-1 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 mt-2"
