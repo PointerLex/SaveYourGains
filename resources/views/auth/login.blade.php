@@ -55,6 +55,7 @@
                         <div class="flex items-center justify-between">
                             <label for="password" class="block text-sm font-semibold leading-6 text-white">Contraseña
                             </label>
+                            <a href="#" class="text-sm font-semibold leading-6 text-blue-100 hover:text-blue-400 ease-in-out">¿Ha olvidado su contraseña?</a>
                         </div>
                         <div class="mt-2 relative">
                             <svg class="w-4 h-4 relative top-6 left-3" fill="#ffff" viewBox="0 0 35 35" data-name="Layer 2"
@@ -86,7 +87,6 @@
                                     </svg>
                                     <div>
                                         <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-
                                     </div>
                                 </div>
                             @enderror
@@ -120,13 +120,6 @@
                     <a href="{{ route('register') }}"
                         class="font-bold leading-6 text-indigo-600 hover:text-indigo-400">Registrese aquí</a>
                 </p>
-
-                <p class="mt-4 text-center font-semibold text-sm text-gray-300">
-                    ¿Ha olvidado su contraseña?
-                    <a href="#" class="font-bold leading-6 text-indigo-600 hover:text-indigo-400">Recupérala
-                        aquí</a>
-                </p>
-
 
             </div>
         </div>

@@ -29,13 +29,13 @@
 
         <div id = "registerForm" class="container mx-auto flex flex-col md:flex-row items-center justify-center z-10">
 
-            <div class="w-full md:w-1/3 p-2">
+            <div class="w-full md:w-1/3 p-2 animate-slide-down">
                 <h1 class="text-8xl font-semibold text-center md:text-left mt-12 relative text-white">Regístrate</h1>
                 <p class="text-center md:text-left text-base font-thin text-gray-300 mt-3 z-10">Complete el formulario para
                     iniciar su registro</p>
             </div>
 
-            <div class="w-full md:w-1/2 p-2">
+            <div class="w-full md:w-1/2 p-2 animate-fade-in">
 
                 <form class="max-w-sm mx-auto mt-12 flex flex-col justify-center z-10" method="POST"
                     action="{{ route('register.store') }}" novalidate>
@@ -249,7 +249,7 @@
         document.getElementById('registerForm').addEventListener('submit', function() {
             var loader = document.getElementById('loader');
             loader.classList.remove('hidden');
-            loader.classList.add('flex'); // Añadimos 'flex' aquí para mostrar el loader correctamente
+            loader.classList.add('flex');
             document.getElementById('registerForm').classList.add('hidden');
         });
     </script>
